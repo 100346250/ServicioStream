@@ -48,12 +48,14 @@ public class Client{
            System.exit(1);
        }
         int port_sip = Integer.parseInt(args[1]);
-        System.out.println("1");
-        // SIPclient sip_con = (args[0], SIP_port)
-        SIPclient sip = new SIPclient (args[0], port_sip);
-        System.out.println("2");
+        SIPclient sip;
+        try{
+          sip = new SIPclient (args[0], port_sip);
+          sip.initiateSession(args[2]);
 
-        sip.initiateSession(args[2]);
+        }catch(Exception e){
+
+        }
         int rtsp_port = sip.getRtspPort();
         String movie = sip.getRtspURI();
         RTSP rtsp = new RTSP("localhost", rtsp_port, port_sip, movie);
@@ -146,7 +148,11 @@ public class Client{
                 //TO DO!! configure the playback of the video received via RTP, or resume a paused playback.
                 //...
                 rtsp.send_request("TEARDOWN");
-                sip.terminateSession();
+                try{
+                  sip.terminateSession();
+                }catch(Exception e){
+
+                }
 
 
             }
