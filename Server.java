@@ -120,7 +120,7 @@ public class Server extends JFrame {
     HeadlessMediaPlayer mediaPlayer = null;
 
     int SIP_port = Integer.parseInt(args[2]);
-    // SIPserver sip = new SIPserver (args[1], SIP_port, RTSP_PORT, "movie.mp4");
+    SIPserver sip = new SIPserver (args[1], SIP_port, RTSP_PORT, "movie.mp4");
 
 
     //Initiate RTSPstate
