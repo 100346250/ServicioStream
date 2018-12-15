@@ -122,7 +122,7 @@ public class Server extends JFrame {
     int SIP_port = Integer.parseInt(args[2]);
     SIPserver sip = new SIPserver (args[1], SIP_port, RTSP_PORT, "movie.mp4");
 
-
+    System.out.println("Constructor finalizado");
     //Initiate RTSPstate
     state = INIT;
 
