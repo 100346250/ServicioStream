@@ -48,7 +48,7 @@ public class Client{
            System.exit(1);
        }
         int port_sip = Integer.parseInt(args[1]);
-        SIPclient sip = null;
+        final SIPclient sip = null;
         int rtsp_port = 0;
         String movie = "";
         try{
