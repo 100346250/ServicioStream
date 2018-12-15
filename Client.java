@@ -49,11 +49,13 @@ public class Client{
        }
         int port_sip = Integer.parseInt(args[1]);
         SIPclient sip;
+        int rtsp_port = 0;
+        String movie;
         try{
           sip = new SIPclient (args[0], port_sip);
           sip.initiateSession(args[2]);
-          int rtsp_port = sip.getRtspPort();
-          String movie = sip.getRtspURI();
+          rtsp_port = sip.getRtspPort();
+          movie = sip.getRtspURI();
 
         }catch(Exception e){
 
