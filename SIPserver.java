@@ -86,13 +86,14 @@ public class SIPserver extends SIPua {
 
 				// TO-DO: create a 200 OK response to the INVITE request, using the object "messageFactory"
 				// Response response = ...
-				Response response = messageFactory.createResponse(200,request);
+				Response response = messageFactory.createResponse(Response.OK,request);
 
 				// TO-DO: create a Contact header using the object "headerFactory"
 				// ...
 				// ContactHeader contactHeader =
 				ContactHeader contactHeader = headerFactory.createContactHeader(this.localAddress);
 				response.addHeader(contactHeader);
+				System.out.println("Un request recibido");
 
 				//Adds an SDP answer
 				ContentTypeHeader contentTypeHeader = headerFactory.createContentTypeHeader("application", "sdp");
