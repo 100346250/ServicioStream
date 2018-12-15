@@ -49,7 +49,7 @@ public class Client{
        }
         int SIP_port = Integer.parseInt(args[1]);
         System.out.println("1");
-        SIPclient sip = (args[0], SIP_port);
+        SIPclient sip = (args[0], SIP_port);;;;;;;;
         System.out.println("2");
 
         sip.initiateSession(args[2]);
