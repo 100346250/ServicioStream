@@ -118,7 +118,6 @@ public class Server extends JFrame {
 
    SIPserver sip = new SIPserver (args[1], SIP_port, RTSP_PORT, "movie.mp4");
 
-   System.out.println("Constructor finalizado");
 
     ServerSocket listenSocket = new ServerSocket(RTSP_PORT);
     RTSPsocket = listenSocket.accept();

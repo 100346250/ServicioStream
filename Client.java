@@ -64,7 +64,7 @@ public class Client{
         System.out.println("PORT: " + rtsp_port);
         System.out.println("Movie: " + movie);
 
-        RTSP rtsp = new RTSP("localhost", rtsp_port, 5804, movie);
+        RTSP rtsp = new RTSP("monito02.lab.it.uc3m.es", rtsp_port, 5804, movie);
 
         frame.setSize(screenWidth / 2, screenHeight / 2);
         frame.setLocation(screenWidth / 3, screenHeight / 3);
