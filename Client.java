@@ -47,15 +47,16 @@ public class Client{
            System.out.println("Especify Local Ip address. ./Client [Local IP] [SIP port] [URI SIP]");
            System.exit(1);
        }
-        int SIP_port = Integer.parseInt(args[1]);
+        int port_sip = Integer.parseInt(args[1]);
         System.out.println("1");
-        SIPclient sip = (args[0], SIP_port);;;;;;;;
+        // SIPclient sip_con = (args[0], SIP_port)
+        SIPclient sip = (args[0], port_sip);
         System.out.println("2");
 
         sip.initiateSession(args[2]);
         int rtsp_port = sip.getRtspPort();
         String movie = sip.getRtspURI();
-        RTSP rtsp = new RTSP("localhost", rtsp_port, SIP_port, movie);
+        RTSP rtsp = new RTSP("localhost", rtsp_port, port_sip, movie);
 
         frame.setSize(screenWidth / 2, screenHeight / 2);
         frame.setLocation(screenWidth / 3, screenHeight / 3);
