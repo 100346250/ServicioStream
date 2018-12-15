@@ -56,7 +56,6 @@ public abstract class SIPua implements SipListener {
 
 		// Initializes remaining attributes
 		SipURI localSipURI = addressFactory.createSipURI(USER, LOCAL_IP + ":" + SIP_PORT);
-		System.out.println("Sip uri " + localSipURI);
 		this.localAddress = addressFactory.createAddress(localSipURI);
 
 		// Initializes the random number generator

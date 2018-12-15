@@ -111,6 +111,10 @@ public class Server extends JFrame {
        System.out.println("Specify a RTSP port and Local Ip address. ./Server [RTSP port] [Local IP] [SIP port]");
        System.exit(1);
    }
+    SIPserver sip = new SIPserver (args[1], SIP_port, RTSP_PORT, "movie.mp4");
+
+    System.out.println("Constructor finalizado");
+
     int RTSP_PORT = Integer.parseInt(args[0]);
     ServerSocket listenSocket = new ServerSocket(RTSP_PORT);
     RTSPsocket = listenSocket.accept();
@@ -120,9 +124,7 @@ public class Server extends JFrame {
     HeadlessMediaPlayer mediaPlayer = null;
 
     int SIP_port = Integer.parseInt(args[2]);
-    SIPserver sip = new SIPserver (args[1], SIP_port, RTSP_PORT, "movie.mp4");
 
-    System.out.println("Constructor finalizado");
     //Initiate RTSPstate
     state = INIT;
 
