@@ -48,9 +48,9 @@ public class Client{
            System.exit(1);
        }
         int port_sip = Integer.parseInt(args[1]);
-        SIPclient sip;
+        SIPclient sip = null;
         int rtsp_port = 0;
-        String movie;
+        String movie = "";
         try{
           sip = new SIPclient (args[0], port_sip);
           sip.initiateSession(args[2]);
