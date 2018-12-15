@@ -107,8 +107,8 @@ public class Server extends JFrame {
   public Server(String[] args) throws Exception{
     //Initiate TCP connection with the client for the RTSP session
 
-    if(args.length != 1) {
-       System.out.println("Specify a RTSP port");
+    if(args.length != 3) {
+       System.out.println("Specify a RTSP port and Ip address. ./Server [RTSP port] [Local IP] [SIP port]");
        System.exit(1);
    }
     int RTSP_PORT = Integer.parseInt(args[0]);
@@ -119,6 +119,8 @@ public class Server extends JFrame {
 
     HeadlessMediaPlayer mediaPlayer = null;
 
+    int SIP_port = Integer.parseInt(args[2]);
+    SIPserver sip = SIPserver (args[1], SIP_port, RTSP_PORT, "movie.mp4");
 
 
     //Initiate RTSPstate
