@@ -48,7 +48,7 @@ public class Client{
            System.exit(1);
        }
         int port_sip = Integer.parseInt(args[1]);
-        SIPclient sip;
+        SIPclient sip = null;
         try{
           sip = new SIPclient (args[0], port_sip);
           sip.initiateSession(args[2]);
