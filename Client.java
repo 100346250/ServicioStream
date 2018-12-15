@@ -45,7 +45,7 @@ public class Client{
         //RTSP PORT: 5854
 
         if(args.length != 3) {
-           System.out.println("Especify Local Ip address. ./Client [Local IP] [SIP port] [URI SIP]");
+           System.out.println("./Client [Local IP] [SIP port] [URI SIP]");
            System.exit(1);
        }
         int port_sip = Integer.parseInt(args[1]);
@@ -64,7 +64,7 @@ public class Client{
         System.out.println("MOVIE: " + movie);
         System.out.println("PORT: " + rtsp_port);
 
-        RTSP rtsp = new RTSP("monitor02.lab.it.uc3m.es", rtsp_port, 5804, movie);
+        RTSP rtsp = new RTSP("monitor02.lab.it.uc3m.es", rtsp_port, 5804, "movie.mp4");
 
         frame.setSize(screenWidth / 2, screenHeight / 2);
         frame.setLocation(screenWidth / 3, screenHeight / 3);
