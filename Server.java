@@ -63,7 +63,7 @@ public class Server extends JFrame {
         try {
           new Server(args);
         } catch (Exception e) {
-          System.out.println("Exception starting server");
+          System.out.println("Exception starting server" + e);
         }
       }
     });
