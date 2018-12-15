@@ -61,6 +61,7 @@ public class Client{
         }catch(Exception e){
 
         }
+        System.out.println("MOVIE: " + movie);
 
         RTSP rtsp = new RTSP("monitor02.lab.it.uc3m.es", rtsp_port, 5804, movie);
 
