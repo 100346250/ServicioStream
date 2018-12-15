@@ -48,9 +48,9 @@ public class Client{
            System.exit(1);
        }
         int SIP_port = Integer.parseInt(args[1]);
-        SIPclient sip = (args[0], SIP_port);
+        // SIPclient sip = (args[0], SIP_port);
 
-        sip.initiateSession(args[2]);
+        // sip.initiateSession(args[2]);
         int rtsp_port = sip.getRtspPort();
         String movie = sip.getRtspURI();
         RTSP rtsp = new RTSP("localhost", rtsp_port, SIP_port, movie);
