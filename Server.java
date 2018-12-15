@@ -131,21 +131,21 @@ public class Server extends JFrame {
     state = INIT;
 
     //GUI initialization
-    // this.setTitle("Server");
-    // mediaPlayerComponent = new EmbeddedMediaPlayerComponent();
-    // this.setContentPane(mediaPlayerComponent);
-    // this.setLocation(600, 100);
-    // this.setSize(500, 500);
-    // this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    //
-    //
-    // this.addWindowListener(new WindowAdapter() {
-    //     @Override
-    //     public void windowClosing(WindowEvent e) {
-    //         mediaPlayerComponent.release();
-    //         System.exit(0);
-    //     }
-    // });
+    this.setTitle("Server");
+    mediaPlayerComponent = new EmbeddedMediaPlayerComponent();
+    this.setContentPane(mediaPlayerComponent);
+    this.setLocation(600, 100);
+    this.setSize(500, 500);
+    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
+    this.addWindowListener(new WindowAdapter() {
+        @Override
+        public void windowClosing(WindowEvent e) {
+            mediaPlayerComponent.release();
+            System.exit(0);
+        }
+    });
 
 
     //Set input and output stream filters:
@@ -176,7 +176,6 @@ public class Server extends JFrame {
           mediaPlayer.play();
         }catch(Exception e){
           mediaPlayer = play_video();
-          System.out.println("Here");
         }
         //update state
         state = PLAYING;
