@@ -109,7 +109,10 @@ public class SIPclient extends SIPua {
 
 					//TO-DO create and send an ACK, using the object "dialog"
 					// ...
-
+					long cseq = dialog.getLocalSeqNumber();
+					Request ack = dialog.createAck(cseq);
+					dialog.sendAck(ack);
+					
 					System.out.println("Session established");
 					processSDP(response.getRawContent());
 				}
@@ -157,7 +160,7 @@ public class SIPclient extends SIPua {
 		// TO-DO: create the Via Header using the method "headerFactory.createViaHeader"
 		//ViaHeader viaHeader = ...
 		ArrayList viaHeaders = new ArrayList();
-		ViaHeader viaHeader = headerFactory.createViaHeader(LOCAL_IP, SIP_PORT,"udp","abcdefgh");
+		ViaHeader viaHeader = headerFactory.createViaHeader(LOCAL_IP, SIP_PORT,"udp","z9hG4bKnashds8");
 		viaHeaders.add(viaHeader);
 
 		// TO-DO: create the Call-ID header using the object "sipProvider"

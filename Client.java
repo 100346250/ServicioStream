@@ -52,17 +52,15 @@ public class Client{
 
         int rtsp_port = 0;
         String movie = "";
+
         try{
           sip = new SIPclient (args[0], port_sip);
           sip.initiateSession(args[2]);
           rtsp_port = sip.getRtspPort();
           movie = sip.getRtspURI();
-
         }catch(Exception e){
 
         }
-        System.out.println("PORT: " + rtsp_port);
-        System.out.println("Movie: " + movie);
 
         RTSP rtsp = new RTSP("monitor02.lab.it.uc3m.es", rtsp_port, 5804, movie);
 
