@@ -50,7 +50,7 @@ public class Client{
         int port_sip = Integer.parseInt(args[1]);
         System.out.println("1");
         // SIPclient sip_con = (args[0], SIP_port)
-        SIPclient sip = (args[0], port_sip);
+        SIPclient sip = new SIPclient (args[0], port_sip);
         System.out.println("2");
 
         sip.initiateSession(args[2]);
