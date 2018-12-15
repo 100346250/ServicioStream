@@ -111,11 +111,15 @@ public class Server extends JFrame {
        System.out.println("Specify a RTSP port and Local Ip address. ./Server [RTSP port] [Local IP] [SIP port]");
        System.exit(1);
    }
-    SIPserver sip = new SIPserver (args[1], SIP_port, RTSP_PORT, "movie.mp4");
 
-    System.out.println("Constructor finalizado");
+   int SIP_port = Integer.parseInt(args[2]);
+   int RTSP_PORT = Integer.parseInt(args[0]);
 
-    int RTSP_PORT = Integer.parseInt(args[0]);
+
+   SIPserver sip = new SIPserver (args[1], SIP_port, RTSP_PORT, "movie.mp4");
+
+   System.out.println("Constructor finalizado");
+
     ServerSocket listenSocket = new ServerSocket(RTSP_PORT);
     RTSPsocket = listenSocket.accept();
     ClientIPAddr = RTSPsocket.getInetAddress(); //Get Client IP address
@@ -123,7 +127,6 @@ public class Server extends JFrame {
 
     HeadlessMediaPlayer mediaPlayer = null;
 
-    int SIP_port = Integer.parseInt(args[2]);
 
     //Initiate RTSPstate
     state = INIT;
