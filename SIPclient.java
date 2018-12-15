@@ -152,28 +152,33 @@ public class SIPclient extends SIPua {
 
 		// TO-DO: create the Request-URI using the object "addressFactory"
 		// SipURI requestURI = ...
-		// ...
 
+		SipURI requestURI = toAddress;
 		// TO-DO: create the Via Header using the method "headerFactory.createViaHeader"
 		//ViaHeader viaHeader = ...
 		ArrayList viaHeaders = new ArrayList();
+		ViaHeader viaHeader = headerFactory.createViaHeader(LOCAL_IP, SIP_PORT,"udp","abcdefgh");
 		viaHeaders.add(viaHeader);
 
 		// TO-DO: create the Call-ID header using the object "sipProvider"
 		// CallIdHeader callIdHeader = ...
+		CallIdHeader callIdHeader = sipProvider.getNewCallId();
 
 		// TO-DO: create CSeq header using the method "headerFactory.createCSeqHeader"
 		// CSeqHeader cSeqHeader = ...
+		CSeqHeader cSeqHeader = headerFactory.createCSeqHeader(123456789, Request.INVITE);
 
 		// TO-DO: create Max-Forwards header using the object "headerFactory"
 		// MaxForwardsHeader maxForwards = ...
+		MaxForwardsHeader maxForwards = headerFactory.createMaxForwardsHeader(70);
 
 		// Creates the request
 		Request request =  messageFactory.createRequest(requestURI, Request.INVITE, callIdHeader, cSeqHeader,	fromHeader, toHeader, viaHeaders, maxForwards);
 
 		// TO-DO: create the Contact header, similarly to the To header, using the object "headerFactory"
 		// ...
-		// ContactHeader contactHeader = ...
+		// ContactHeader contactHeader = ...fromNameAddress
+		ContactHeader contactHeader = headerFactory.createContactHeader(this.localAddress);
 		request.addHeader(contactHeader);
 
 		// Creates Content-type header

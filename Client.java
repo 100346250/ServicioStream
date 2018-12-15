@@ -40,8 +40,20 @@ public class Client{
         int screenWidth = screenSize.width;
         int state;
 
+        //SIP PORT: 5804
+        //RTSP PORT: 5854
 
-        RTSP rtsp = new RTSP("localhost", 5854, 5804, "movie.mp4");
+        if(args.length != 3) {
+           System.out.println("Especify Local Ip address. ./Client [Local IP] [SIP port] [URI SIP]");
+           System.exit(1);
+       }
+        int SIP_port = Integer.parseInt(args[1]);
+        SIPclient sip = (args[0], SIP_port);
+
+        sip.initiateSession(args[2]);
+        int rtsp_port = sip.getRtspPort();
+        String movie = sip.getRtspURI();
+        RTSP rtsp = new RTSP("localhost", rtsp_port, SIP_port, movie);
 
         frame.setSize(screenWidth / 2, screenHeight / 2);
         frame.setLocation(screenWidth / 3, screenHeight / 3);
@@ -131,6 +143,7 @@ public class Client{
                 //TO DO!! configure the playback of the video received via RTP, or resume a paused playback.
                 //...
                 rtsp.send_request("TEARDOWN");
+                sip.terminateSession();
 
 
             }

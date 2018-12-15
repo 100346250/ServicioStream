@@ -108,7 +108,7 @@ public class Server extends JFrame {
     //Initiate TCP connection with the client for the RTSP session
 
     if(args.length != 3) {
-       System.out.println("Specify a RTSP port and Ip address. ./Server [RTSP port] [Local IP] [SIP port]");
+       System.out.println("Specify a RTSP port and Local Ip address. ./Server [RTSP port] [Local IP] [SIP port]");
        System.exit(1);
    }
     int RTSP_PORT = Integer.parseInt(args[0]);
