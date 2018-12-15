@@ -150,7 +150,7 @@ public class Client{
                 rtsp.send_request("TEARDOWN");
                 try{
                   sip.terminateSession();
-                }catch(Exception e){
+                }catch(Exception otro_e){
 
                 }
 
