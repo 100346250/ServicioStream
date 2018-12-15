@@ -48,16 +48,17 @@ public class Client{
            System.exit(1);
        }
         int port_sip = Integer.parseInt(args[1]);
-        SIPclient sip = null;
+        SIPclient sip;
         try{
           sip = new SIPclient (args[0], port_sip);
           sip.initiateSession(args[2]);
+          int rtsp_port = sip.getRtspPort();
+          String movie = sip.getRtspURI();
 
         }catch(Exception e){
 
         }
-        int rtsp_port = sip.getRtspPort();
-        String movie = sip.getRtspURI();
+
         RTSP rtsp = new RTSP("localhost", rtsp_port, port_sip, movie);
 
         frame.setSize(screenWidth / 2, screenHeight / 2);
